@@ -3,9 +3,7 @@ import json
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
-from google.cloud import api_keys_v2, dialogflow
-from google.cloud.api_keys_v2 import Key
-
+from google.cloud import dialogflow
 from dotenv import load_dotenv
 
 
@@ -49,7 +47,6 @@ def get_df_reply(project_id, session_id, text, language_code="ru"):
         request={"session": session, "query_input": query_input}
     )
     return response.query_result.fulfillment_text
-
 
 
 def start(update: Update, context: CallbackContext) -> None:
