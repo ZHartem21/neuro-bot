@@ -12,7 +12,7 @@ def start(update: Update, context: CallbackContext) -> None:
     )
 
 
-def response(update: Update, context: CallbackContext) -> None:
+def respond(update: Update, context: CallbackContext) -> None:
     df_response, is_fallback = get_df_response(os.environ["PROJECT_ID"], update.message.chat_id, update.message.text)
     update.message.reply_text(df_response)
 
@@ -22,6 +22,6 @@ if __name__ == "__main__":
     updater = Updater(os.environ["TG_TOKEN"])
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, response))
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, respond))
     updater.start_polling()
     updater.idle()
