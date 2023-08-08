@@ -24,6 +24,9 @@ pip install -r requirements.txt
 Настройка бота производится при помощи консоли [DialogFlow](https://dialogflow.cloud.google.com)
 Чтобы бот начал работу необходимо запустить файл `dialogflow_bot_for_vk.py` либо `dialogflow_bot_for_tg.py`
 
+### Как обучить бота из .json файла
+Чтобы обучить бота необходимо запустить файл `df_manager.py`, используя имя файла как аргумент, например `python df_manager.py questions.json`
+
 ## Цели проекта
 
 Код написан в учебных целях — это урок в курсе по Python и веб-разработке на сайте [Devman](https://dvmn.org).
